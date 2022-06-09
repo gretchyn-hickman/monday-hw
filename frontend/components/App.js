@@ -30,6 +30,19 @@ export default class App extends React.Component {
       ],
     };
   }
+  handleClear = () => {
+    //handle state
+    //loop all to-dos
+    //remove all that are done
+    //left over to-dos to state
+
+    this.setState({
+      ...this.state,
+      todos: this.state.todos.filter((todo) => {
+        return todo.done === false;
+      }),
+    });
+  };
   render() {
     const { todos } = this.state;
     console.log(todos);
@@ -38,7 +51,7 @@ export default class App extends React.Component {
         <h1>Todo</h1>
         <TodoList todos={todos} />
         <TodoForm />
-        <button>Clear</button>
+        <button onClick={this.handleClear}>Update</button>
       </div>
     );
   }
