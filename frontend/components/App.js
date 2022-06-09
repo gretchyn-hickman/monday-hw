@@ -1,4 +1,5 @@
 import React from "react";
+import Todo from "./Todo";
 
 export default class App extends React.Component {
   constructor() {
@@ -36,11 +37,7 @@ export default class App extends React.Component {
         <h1>Todo</h1>
         <ul>
           {todos.map((todo) => {
-            return (
-              <li key={todo.id}>
-                {todo.name} {todo.done ? <span>- done</span> : <span></span>}
-              </li>
-            );
+            return <Todo todo={todo} />;
           })}
         </ul>
 
