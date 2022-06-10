@@ -6,7 +6,13 @@ export default class TodoList extends React.Component {
     return (
       <ul>
         {this.props.todos.map((todo) => {
-          return <Todo todo={todo} />;
+          return (
+            <Todo
+              key={todo.id}
+              handleDone={this.props.handleDone}
+              todo={todo}
+            />
+          );
         })}
       </ul>
     );

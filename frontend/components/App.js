@@ -49,13 +49,27 @@ export default class App extends React.Component {
       }),
     });
   };
+  handleDone = (clicked) => {
+    this.setState({
+      ...this.state,
+      todos: this.state.todos.map((todo) => {
+        if (todo.id === clicked) {
+          return {
+            ...todo,
+            done: !todo.done,
+          };
+        }
+        return todo;
+      }),
+    });
+  };
   render() {
     const { todos } = this.state;
     console.log(todos);
     return (
       <div>
         <h1>Todo</h1>
-        <TodoList todos={todos} />
+        <TodoList handleDone={this.handleDone} todos={todos} />
         <TodoForm handleAdd={this.handleAdd} />
         <button onClick={this.handleClear}>Update</button>
       </div>
