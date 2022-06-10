@@ -65,7 +65,6 @@ export default class App extends React.Component {
   };
   render() {
     const { todos } = this.state;
-    console.log(todos);
     return (
       <div>
         <h1>Todo</h1>
