@@ -30,12 +30,18 @@ export default class App extends React.Component {
       ],
     };
   }
+  handleAdd = (item) => {
+    const newTask = {
+      name: item,
+      id: Date.now(),
+      done: false,
+    };
+    this.setState({
+      ...this.state,
+      todos: [...this.state.todos, newTask],
+    });
+  };
   handleClear = () => {
-    //handle state
-    //loop all to-dos
-    //remove all that are done
-    //left over to-dos to state
-
     this.setState({
       ...this.state,
       todos: this.state.todos.filter((todo) => {
@@ -50,7 +56,7 @@ export default class App extends React.Component {
       <div>
         <h1>Todo</h1>
         <TodoList todos={todos} />
-        <TodoForm />
+        <TodoForm handleAdd={this.handleAdd} />
         <button onClick={this.handleClear}>Update</button>
       </div>
     );
